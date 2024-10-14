@@ -2026,7 +2026,7 @@ MonoBehaviour:
   m_Placeholder: {fileID: 0}
   m_ItemText: {fileID: 1404895872}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 2
   m_Options:
     m_Options:
     - m_Text: Low
@@ -3750,7 +3750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Low
+  m_text: High
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 188ff6c0b92104fd7a39b21f3064b74d, type: 2}
   m_sharedMaterial: {fileID: -3003746592013189323, guid: 188ff6c0b92104fd7a39b21f3064b74d, type: 2}
