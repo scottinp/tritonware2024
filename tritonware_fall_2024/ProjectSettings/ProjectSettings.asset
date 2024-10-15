@@ -735,7 +735,13 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -755,11 +761,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: bcc94e62-6315-4d32-a0a0-b7db24904452
+  cloudProjectId: c1130edd-37dd-46ad-96cd-8e7f4a17db87
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: tritonware_fall_2024
-  organizationId: brianto0544-gmail-com
+  organizationId: jits4000
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
