@@ -31,7 +31,7 @@ public class monsterAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("PlayerObj").transform;
-        agent = GetComponent<NavMeshAgent>();/
+        agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()

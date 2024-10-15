@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-/Users/stephenbui/Documents/GitHub/tritonware2024/tritonware_fall_2024
-=======
 /Users/scottin/Documents/GitHub/tritonware2024/tritonware_fall_2024
->>>>>>> b5d93ebf3f8c41bed54873cec6ff13c85c06d7fc
