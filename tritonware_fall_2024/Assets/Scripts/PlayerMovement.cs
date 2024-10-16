@@ -2,24 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     [Header("Movement")]
-    public float moveSpeed;
-
+    private float moveSpeed;
+    public float walkSpeed;
+    public float sprintSpeed;
     public float groundDrag;
+
+    public Image StaminaBar;
+
+    public float Stamina, MaxStamina;
+
+    public float RunCost;  
+    public float ChargeRate; 
+
+    private Coroutine recharge;
 
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
 
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
+    
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -35,6 +47,15 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    public MovementState state; 
+
+    public enum MovementState
+    {
+        walking,
+        sprinting,
+        air
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,19 +66,44 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        
+            //stamina check
+        if(Input.GetKey(sprintKey)) {
+        Stamina -= RunCost * Time.deltaTime;
+        if(Stamina < 0) Stamina = 0;
+        StaminaBar.fillAmount = Stamina / MaxStamina;
+
+        if(recharge != null) StopCoroutine(recharge);
+        recharge = StartCoroutine(RechargeStamina());
+        }
+
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 
         MyInput();
         SpeedControl();
+        StateHandler();
 
         // handle drag
         if (grounded)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
-    }
+        
 
+    
+    }
+    
+    private IEnumerator RechargeStamina(){
+        yield return new WaitForSeconds(1f);
+
+        while(Stamina < MaxStamina) {
+            Stamina += ChargeRate / 10f;
+            if(Stamina > MaxStamina) Stamina = MaxStamina;
+            StaminaBar.fillAmount = Stamina / MaxStamina;
+            yield return new WaitForSeconds(.1f);
+        }
+    }
     private void FixedUpdate()
     {
         MovePlayer();
@@ -79,6 +125,28 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void StateHandler()
+    {
+        //Mode - Sprinting
+        if(grounded && Input.GetKey(sprintKey) && (Stamina > 0 ))
+        {
+            state = MovementState.sprinting;
+            moveSpeed = sprintSpeed;
+            
+        }
+
+        //Mode - Walking
+        else if(grounded)
+        {
+            state = MovementState.walking;
+            moveSpeed = walkSpeed;
+        }
+
+        else
+        {
+            state = MovementState.air;
+        }
+    }
     private void MovePlayer()
     {
         // calculate movement direction
