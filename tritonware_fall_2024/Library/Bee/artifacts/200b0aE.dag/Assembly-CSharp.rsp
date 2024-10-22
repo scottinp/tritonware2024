@@ -355,7 +355,6 @@
 "Assets/Scripts/Camera Move.cs"
 "Assets/Scripts/HealthBar.cs"
 "Assets/Scripts/MainMenu.cs"
-"Assets/Scripts/monsterAI.cs"
 "Assets/Scripts/monsterMOVE.cs"
 "Assets/Scripts/PlayerCam.cs"
 "Assets/Scripts/PlayerMovement.cs"
