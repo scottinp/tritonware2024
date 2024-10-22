@@ -11,7 +11,7 @@ public class GameOverScreen : MonoBehaviour
   public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }  
     public void RestartGame(){
         SceneManager.LoadScene(1);

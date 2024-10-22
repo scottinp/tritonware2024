@@ -353,6 +353,7 @@
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.49f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.49f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/GameOverScreen.cs"
+"Assets/Scripts/billboard.cs"
 "Assets/Scripts/Camera Move.cs"
 "Assets/Scripts/Damage.cs"
 "Assets/Scripts/footsteps.cs"
