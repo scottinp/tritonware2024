@@ -840,13 +840,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 2
-  sprintSpeed: 7
+  sprintSpeed: 4
   groundDrag: 2
   StaminaBar: {fileID: 103434542}
   Stamina: 100
   MaxStamina: 100
   RunCost: 25
-  ChargeRate: 33
+  ChargeRate: 10
   jumpForce: 3
   jumpCooldown: 2
   airMultiplier: 1
